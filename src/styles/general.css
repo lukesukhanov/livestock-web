@@ -4,6 +4,8 @@
   --main-color: rgb(102, 186, 189);
   --font-color: rgb(102, 101, 101);
   --tip-font-color: rgb(182, 180, 180);
+  --tip-background-color: rgb(243, 243, 243);
+  --large-font-size: 1.3rem;
   --small-font-size: 0.85rem;
 }
 
@@ -25,6 +27,18 @@ body {
 
 main {
   margin-top: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: flex-start;
+  flex-wrap: 0;
+}
+
+button:hover {
+  opacity: 0.75;
+}
+button:active {
+  opacity: 0.5;
 }
 
 /* Remove arrows for the input with type 'number' */
