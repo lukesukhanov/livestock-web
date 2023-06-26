@@ -1,0 +1,21 @@
+@import url("./fonts/GTEestiPro/stylesheet.css");
+
+:root {
+  --font-color: rgb(102, 101, 101);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  padding: 2rem 9rem;
+  font-family: "GT Eesti Pro Text", arial, sans-serif;
+  background-color: white;
+  color: var(--font-color);
+}
