@@ -1,0 +1,182 @@
+:root {
+  --main-color: rgb(102, 186, 189);
+  --tip-color: rgb(182, 180, 180);
+  --small-font-size: 0.85rem;
+}
+
+.top-frame {
+  height: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.top-frame__left {
+  margin-right: 2rem;
+  height: inherit;
+  width: 20%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.top-frame__left__logo {
+  margin-right: 2rem;
+  height: inherit;
+  box-sizing: border-box;
+}
+
+.top-frame__left__catalogue-button {
+  height: inherit;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.2rem;
+  background-color: var(--main-color);
+  color: white;
+  border: 0.1rem solid var(--main-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.top-frame__left__catalogue-button:hover {
+  opacity: 0.75;
+}
+.top-frame__left__catalogue-button:active {
+  opacity: 0.5;
+}
+
+.top-frame__search-bar {
+  margin-right: 1rem;
+  height: inherit;
+  flex: 1;
+  width: 5rem;
+  font-size: 1.2rem;
+  color: inherit;
+  border: none;
+  border-radius: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-frame__search-bar:focus {
+  outline: none;
+}
+
+.top-frame__search-bar__bar {
+  height: inherit;
+  flex: 5;
+  padding-left: 1rem;
+  font-family: inherit;
+  font-size: 1.2rem;
+  color: inherit;
+  border: 0.1rem solid var(--main-color);
+  border-right: none;
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+.top-frame__search-bar__bar:focus {
+  outline: none;
+}
+
+.top-frame__search-bar__bar::placeholder {
+  font-family: "GT Eesti Pro Text", arial, sans-serif;
+  color: var(--tip-color);
+}
+
+.top-frame__search-bar__button {
+  height: inherit;
+  flex: 1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.2rem;
+  background-color: var(--main-color);
+  color: white;
+  border: 0.1rem solid var(--main-color);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.top-frame__search-bar__button:hover {
+  opacity: 0.75;
+}
+.top-frame__search-bar__button:active {
+  opacity: 0.5;
+}
+
+.top-frame__right {
+  height: inherit;
+  width: 20%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.top-frame__right__user {
+  margin-right: 1.5rem;
+  height: inherit;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.top-frame__right__user__icon {
+  height: 65%;
+  box-sizing: border-box;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.top-frame__right__user__username {
+  font-size: var(--small-font-size);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.top-frame__right__cart {
+  margin-right: 1.5rem;
+  height: inherit;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.top-frame__right__cart__icon {
+  height: 65%;
+  box-sizing: border-box;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.top-frame__right__cart__label {
+  font-size: var(--small-font-size);
+  box-sizing: border-box;
+  cursor: pointer;
+}
