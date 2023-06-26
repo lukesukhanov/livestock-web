@@ -41,13 +41,6 @@
   transition: all 0.15s;
 }
 
-.top-frame__left__catalogue-button:hover {
-  opacity: 0.75;
-}
-.top-frame__left__catalogue-button:active {
-  opacity: 0.5;
-}
-
 .top-frame__search-bar {
   margin-right: 1rem;
   height: inherit;
@@ -105,13 +98,6 @@
   box-sizing: border-box;
   cursor: pointer;
   transition: all 0.15s;
-}
-
-.top-frame__search-bar__button:hover {
-  opacity: 0.75;
-}
-.top-frame__search-bar__button:active {
-  opacity: 0.5;
 }
 
 .top-frame__right {

@@ -1,4 +1,5 @@
 .filters {
+  margin-right: 3rem;
   width: 15%;
   box-sizing: border-box;
   display: flex;
@@ -16,6 +17,7 @@
 
 .filters__category__header {
   margin-bottom: 0.3rem;
+  font-weight: bold;
 }
 
 .filters__category__value {
@@ -36,6 +38,7 @@
 
 .filters__price__header {
   margin-bottom: 0.3rem;
+  font-weight: bold;
 }
 .filters__price__inputs {
   width: 100%;
@@ -58,10 +61,6 @@
   justify-content: start;
   align-items: center;
   flex-shrink: 0;
-}
-
-.filters__price__inputs__from + filters__price__inputs__from__input:focus {
-  border-color: var(--main-color);
 }
 
 .filters__price__inputs__from__label {
