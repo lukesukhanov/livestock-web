@@ -8,6 +8,7 @@
     <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./src/styles/general.css" />
     <link rel="stylesheet" href="./src/styles/topFrame.css" />
+    <link rel="stylesheet" href="./src/styles/filters.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -37,6 +38,27 @@
         </div>
       </div>
     </header>
-    <main></main>
+    <main>
+      <div class="filters">
+        <div class="filters__category">
+          <div class="filters__category__header"><b>Категория</b></div>
+          <div class="filters__category__value">Козы</div>
+        </div>
+        <div class="filters__price">
+          <div class="filters__price__header"><b>Цена</b></div>
+          <div class="filters__price__inputs">
+            <div class="filters__price__inputs__from">
+              <label class="filters__price__inputs__from__label">от</label>
+              <input class="filters__price__inputs__from__input" type="number" />
+            </div>
+            <div class="filters__price__inputs__to">
+              <label class="filters__price__inputs__to__label">до</label>
+              <input class="filters__price__inputs__to__input" type="number" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="items"></div>
+    </main>
   </body>
 </html>

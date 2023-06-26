@@ -1,7 +1,10 @@
 @import url("./fonts/GTEestiPro/stylesheet.css");
 
 :root {
+  --main-color: rgb(102, 186, 189);
   --font-color: rgb(102, 101, 101);
+  --tip-font-color: rgb(182, 180, 180);
+  --small-font-size: 0.85rem;
 }
 
 * {
@@ -18,4 +21,20 @@ body {
   font-family: "GT Eesti Pro Text", arial, sans-serif;
   background-color: white;
   color: var(--font-color);
+}
+
+main {
+  margin-top: 6rem;
+}
+
+/* Remove arrows for the input with type 'number' */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
