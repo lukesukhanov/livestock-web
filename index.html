@@ -13,13 +13,20 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="module" src="./src/scripts/index.js"></script>
   </head>
   <body>
     <header>
       <div class="top-frame">
         <div class="top-frame__left">
           <img class="top-frame__left__logo" src="./src/images/logo.jpg" />
-          <button class="top-frame__left__catalogue-button">Каталог</button>
+          <div class="top-frame__left__catalogue-container">
+            <button class="top-frame__left__catalogue-container__button">Каталог</button>
+            <div class="top-frame__left__catalogue-container__catalogue">
+              <div class="top-frame__left__catalogue-container__catalogue__category">Овцы</div>
+              <div class="top-frame__left__catalogue-container__catalogue__category">Коровы</div>
+            </div>
+          </div>
         </div>
         <div class="top-frame__search-bar">
           <input class="top-frame__search-bar__bar" type="text" placeholder="Искать на Livestock" />
@@ -81,5 +88,6 @@
         </div>
       </div>
     </main>
+    <div class="overlay"></div>
   </body>
 </html>
