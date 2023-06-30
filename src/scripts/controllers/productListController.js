@@ -11,6 +11,10 @@ class ProductListController {
     this.#filter = {};
   }
 
+  setPage(page) {
+    this.#pageable.page = page;
+  }
+
   setFilterParam(paramName, paramValue) {
     this.#filter[paramName] = paramValue;
   }

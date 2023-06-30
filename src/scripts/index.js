@@ -11,6 +11,7 @@ import "./services/productService.js";
 import "./eventListeners/catalogueButtonEventListener.js";
 import "./eventListeners/catalogueCategoryEventListener.js";
 import "./eventListeners/overlayEventListener.js";
+import "./eventListeners/productListPagesEventListener.js";
 
 // Controllers
 import "./controllers/catalogueController.js";
