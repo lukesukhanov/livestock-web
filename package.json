@@ -1,0 +1,15 @@
+{
+  "name": "livestock-shop-web",
+  "version": "1.0",
+  "description": "<a name=\"readme-top\"></a>",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Luke Sukhanov",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.2"
+  }
+}

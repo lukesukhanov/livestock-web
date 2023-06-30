@@ -65,6 +65,26 @@ button:active {
   opacity: 0.5;
 }
 
+/* Spinner */
+
+.spinner {
+  margin: 5rem auto;
+  width: 6rem;
+  height: 6rem;
+  text-align: center;
+  fill: red;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Remove arrows for the input with type 'number' */
 
 input::-webkit-outer-spin-button,

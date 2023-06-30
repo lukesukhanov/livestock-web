@@ -12,6 +12,7 @@ catalogueEl.addEventListener("click", event => {
   if (!categoryEl) return;
   const categoryId = categoryEl.dataset.categoryId;
   productListController.clearFilter();
+  productListController.setPage(1);
   productListController.setFilterParam("categoryId", categoryId);
   productListController.refreshProductList();
 });

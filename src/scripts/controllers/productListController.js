@@ -42,6 +42,4 @@ class ProductListController {
   }
 }
 
-const productListController = new ProductListController();
-
-export default productListController;
+export default new ProductListController();
