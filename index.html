@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./src/styles/general.css" />
     <link rel="stylesheet" href="./src/styles/topFrame.css" />
     <link rel="stylesheet" href="./src/styles/filters.css" />
-    <link rel="stylesheet" href="./src/styles/items.css" />
+    <link rel="stylesheet" href="./src/styles/productList.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -66,25 +66,31 @@
           </div>
         </div>
       </div>
-      <div class="items">
-        <div class="items__item">
-          <img
-            class="items__item__image"
-            src="https://20.img.avito.st/image/1/1.v_0qira4ExQcPZEZWPD8uAkoERKUK5ECHCYRFpojGx6c.hCMZiM5Scx6Pgrw_ugb9sEw8aiGkr6bZdFWuhSfLm_c" />
-          <div class="items__item__info">
-            <div class="items__item__info__name">Продаются козы</div>
-            <div class="items__item__info__price">
-              <span class="items__item__info__price__value">3 000</span>
-              <span class="items__item__info__price__currency">₽</span>
+      <div class="product-list-container">
+        <div class="product-list">
+          <div class="product-list__product">
+            <img
+              class="product-list__product__image"
+              src="https://20.img.avito.st/image/1/1.v_0qira4ExQcPZEZWPD8uAkoERKUK5ECHCYRFpojGx6c.hCMZiM5Scx6Pgrw_ugb9sEw8aiGkr6bZdFWuhSfLm_c" />
+            <div class="product-list__product__info">
+              <div class="product-list__product__info__name">Продаются козы</div>
+              <div class="product-list__product__info__price">
+                <span class="product-list__product__info__price__value">3 000</span>
+                <span class="product-list__product__info__price__currency">₽</span>
+              </div>
+              <div class="product-list__product__info__quantity">
+                <span class="product-list__product__info__quantity__label">В наличии: </span>
+                <span class="product-list__product__info__quantity__value">5</span>
+              </div>
+              <div class="product-list__product__info__description">
+                Продаю козы разных возрастов 10 голов, за всех 50 000 ₽. Можно поштучно.
+              </div>
             </div>
-            <div class="items__item__info__description">
-              Продаю козы разных возрастов 10 голов, за всех 50 000 ₽. Можно поштучно.
-            </div>
+            <button class="product-list__product__cart-button">В корзину</button>
           </div>
-          <button class="items__item__cart-button">В корзину</button>
         </div>
-        <div class="items__pages">
-          <div class="items__pages__page" data-page="1">1</div>
+        <div class="product-list__pages">
+          <div class="product-list__pages__page" data-page-ordinal="1">1</div>
         </div>
       </div>
     </main>

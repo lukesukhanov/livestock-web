@@ -22,7 +22,7 @@ class CatalogueView {
     categories.forEach(category => {
       const categoryEl = document.createElement("div");
       categoryEl.classList.add("top-frame__left__catalogue-container__catalogue__category");
-      categoryEl.setAttribute("data-id", category.id);
+      categoryEl.setAttribute("data-category-id", category.id);
       categoryEl.setAttribute("data-category-name", category.categoryName);
       categoryEl.innerText = category.categoryName;
       catalogueEl.insertAdjacentElement("beforeend", categoryEl);
