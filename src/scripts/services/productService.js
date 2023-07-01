@@ -33,6 +33,8 @@ class ProductService {
     switch (response.status) {
       case 200:
         return await response.json();
+      case 400:
+        return null;
     }
   }
 

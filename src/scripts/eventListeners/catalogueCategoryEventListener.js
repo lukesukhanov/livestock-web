@@ -1,5 +1,6 @@
 import productListController from "../controllers/productListController.js";
 import catalogueView from "../views/catalogueView.js";
+import filtersView from "../views/filtersView.js";
 
 const catalogueEl = document.querySelector(".top-frame__left__catalogue-container__catalogue");
 
@@ -15,4 +16,5 @@ catalogueEl.addEventListener("click", event => {
   productListController.setPage(1);
   productListController.setFilterParam("categoryId", categoryId);
   productListController.refreshProductList();
+  filtersView.clearFilters();
 });

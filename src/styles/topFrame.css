@@ -42,7 +42,7 @@
   font-size: 1.2rem;
   background-color: var(--main-color);
   color: white;
-  border: 0.1rem solid var(--main-color);
+  border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: all 0.15s;
@@ -147,7 +147,7 @@
   font-size: 1.2rem;
   background-color: var(--main-color);
   color: white;
-  border: 0.1rem solid var(--main-color);
+  border: none;
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   box-sizing: border-box;

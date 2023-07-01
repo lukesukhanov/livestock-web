@@ -27,6 +27,7 @@
 }
 
 .filters__price {
+  margin-bottom: 1rem;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -104,4 +105,18 @@
   border: none;
   box-sizing: border-box;
   outline: none;
+}
+
+.filters__search-button {
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.1rem;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.15s;
 }
