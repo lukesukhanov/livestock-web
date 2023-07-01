@@ -4,6 +4,7 @@ const filtersSearchButtonEl = document.querySelector(".filters__buttons__search-
 
 filtersSearchButtonEl.addEventListener("click", event => {
   event.preventDefault();
+  productListController.setPageableToDefault();
   productListController.actualizeFilters();
   productListController.refreshProductList();
 });

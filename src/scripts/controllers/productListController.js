@@ -19,6 +19,11 @@ class ProductListController {
     this.#pageable.page = page;
   }
 
+  setPageableToDefault() {
+    this.#pageable.page = 1;
+    this.#pageable.size = 5;
+  }
+
   setFilterParam(paramName, paramValue) {
     this.#filter[paramName] = paramValue;
   }

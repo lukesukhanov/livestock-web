@@ -5,6 +5,7 @@ const filtersPriceToEl = document.querySelector(".filters__price__inputs__to__in
 filtersPriceToEl.addEventListener("keydown", event => {
   if (event.key !== "Enter") return;
   event.preventDefault();
+  productListController.setPageableToDefault();
   const maxPrice = filtersPriceToEl.value;
   if (maxPrice) {
     productListController.setFilterParam("maxPrice", maxPrice);
