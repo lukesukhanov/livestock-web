@@ -2,6 +2,7 @@ import productService from "../services/productService.js";
 import catalogueView from "../views/catalogueView.js";
 import productListView from "../views/productListView.js";
 import productListPagesView from "../views/productListPagesView.js";
+import filtersCategoryView from "../views/filtersCategoryView.js";
 
 class ProductListController {
   #pageable = { page: 1, size: 5 };
@@ -39,7 +40,11 @@ class ProductListController {
     });
     productListView.render(products);
     productListPagesView.render(productPage.totalPages, this.#pageable.page);
+    filtersCategoryView.render(this.#filter.categoryId);
   }
 }
 
-export default new ProductListController();
+const productListController = new ProductListController();
+productListController.refreshProductList();
+
+export default productListController;

@@ -3,6 +3,7 @@ import "./views/catalogueView.js";
 import "./views/productListView.js";
 import "./views/productListPagesView.js";
 import "./views/imageView.js";
+import "./views/filtersCategoryView.js";
 
 // Services
 import "./services/productService.js";
