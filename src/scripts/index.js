@@ -16,6 +16,8 @@ import "./eventListeners/productListPagesEventListener.js";
 import "./eventListeners/filtersSearchButtonEventHandler.js";
 import "./eventListeners/topFrameSearchButtonEventHandler.js";
 import "./eventListeners/topFrameSearchInputEventHandler.js";
+import "./eventListeners/filtersPriceFromInputEventHandler.js";
+import "./eventListeners/filtersPriceToInputEventHandler.js";
 
 // Controllers
 import "./controllers/catalogueController.js";

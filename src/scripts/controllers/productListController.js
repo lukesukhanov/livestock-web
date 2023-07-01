@@ -4,6 +4,9 @@ import productListView from "../views/productListView.js";
 import productListPagesView from "../views/productListPagesView.js";
 import filtersView from "../views/filtersView.js";
 
+const filtersPriceFromEl = document.querySelector(".filters__price__inputs__from__input");
+const filtersPriceToEl = document.querySelector(".filters__price__inputs__to__input");
+
 class ProductListController {
   #pageable = { page: 1, size: 5 };
   #filter = {};
@@ -27,6 +30,21 @@ class ProductListController {
   async refreshCatalogue() {
     const categories = await productService.getAllCategories();
     catalogueView.refresh(categories);
+  }
+
+  actualizeFilters() {
+    const minPrice = filtersPriceFromEl.value;
+    const maxPrice = filtersPriceToEl.value;
+    if (minPrice) {
+      this.setFilterParam("minPrice", minPrice);
+    } else {
+      this.removeFilterParam("minPrice");
+    }
+    if (maxPrice) {
+      this.setFilterParam("maxPrice", maxPrice);
+    } else {
+      this.removeFilterParam("maxPrice");
+    }
   }
 
   async refreshProductList() {
