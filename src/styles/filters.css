@@ -107,7 +107,17 @@
   outline: none;
 }
 
-.filters__search-button {
+.filters__buttons {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.filters__buttons button {
   padding: 0.5rem 1rem;
   box-sizing: border-box;
   text-align: center;
