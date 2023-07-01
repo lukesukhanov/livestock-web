@@ -14,6 +14,8 @@ import "./eventListeners/catalogueCategoryEventListener.js";
 import "./eventListeners/overlayEventListener.js";
 import "./eventListeners/productListPagesEventListener.js";
 import "./eventListeners/filtersSearchButtonEventHandler.js";
+import "./eventListeners/topFrameSearchButtonEventHandler.js";
+import "./eventListeners/topFrameSearchInputEventHandler.js";
 
 // Controllers
 import "./controllers/catalogueController.js";
