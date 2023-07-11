@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="./src/styles/topFrame.css" />
     <link rel="stylesheet" href="./src/styles/filters.css" />
     <link rel="stylesheet" href="./src/styles/productList.css" />
-    <link rel="stylesheet" href="./src/styles/formContainer.css" />
     <link rel="stylesheet" href="./src/styles/loginForm.css" />
     <link rel="stylesheet" href="./src/styles/registrationForm.css" />
     <link rel="stylesheet" href="./src/styles/overlay.css" />
@@ -100,7 +99,8 @@
           </div>-->
         </div>
         <div class="product-list__pages">
-          <div class="product-list__pages__page" data-page-ordinal="1">1</div>
+          <!--
+          <div class="product-list__pages__page" data-page-ordinal="1">1</div>-->
         </div>
       </div>
     </main>
@@ -111,10 +111,15 @@
     <div class="login-form-box">
       <form class="login-form-box__login-form">
         <label class="login-form-box__login-form__title">Вход</label>
-        <input class="login-form-box__login-form__email-input" type="text" placeholder="Почта" />
+        <input
+          class="login-form-box__login-form__email-input"
+          type="text"
+          name="email"
+          placeholder="Почта" />
         <input
           class="login-form-box__login-form__password-input"
           type="password"
+          name="password"
           placeholder="Пароль" />
         <button class="login-form-box__login-form__button">Войти</button>
       </form>

@@ -75,7 +75,7 @@
   color: var(--tip-font-color);
 }
 
-.login-form-box__login-form input.incorrect {
+.login-form-box__login-form input.error {
   border-color: red;
 }
 

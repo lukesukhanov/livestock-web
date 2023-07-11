@@ -24,9 +24,13 @@ import "./eventListeners/topFrameSearchInputEventHandler.js";
 import "./eventListeners/topFrameUserIconEventListener.js";
 import "./eventListeners/filtersPriceFromInputEventHandler.js";
 import "./eventListeners/filtersPriceToInputEventHandler.js";
+import "./eventListeners/loginFormSubmitButtonEventListener.js";
 import "./eventListeners/loginFormRegistrationButtonEventListener.js";
 import "./eventListeners/registrationFormSubmitButtonEventHandler.js";
 
 // Controllers
 import "./controllers/catalogueController.js";
 import "./controllers/userController.js";
+
+// Utils
+import "./utils/stringUtils.js";
