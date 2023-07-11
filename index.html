@@ -9,17 +9,26 @@
     <link rel="stylesheet" href="./src/styles/general.css" />
     <link rel="stylesheet" href="./src/styles/topFrame.css" />
     <link rel="stylesheet" href="./src/styles/filters.css" />
-    <link rel="stylesheet" href="./src/styles/items.css" />
+    <link rel="stylesheet" href="./src/styles/productList.css" />
+    <link rel="stylesheet" href="./src/styles/loginForm.css" />
+    <link rel="stylesheet" href="./src/styles/overlay.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="module" src="./src/scripts/index.js"></script>
   </head>
   <body>
     <header>
       <div class="top-frame">
         <div class="top-frame__left">
           <img class="top-frame__left__logo" src="./src/images/logo.jpg" />
-          <button class="top-frame__left__catalogue-button">Каталог</button>
+          <div class="top-frame__left__catalogue-container">
+            <button class="top-frame__left__catalogue-container__button">Каталог</button>
+            <div class="top-frame__left__catalogue-container__catalogue">
+              <div class="top-frame__left__catalogue-container__catalogue__category">Овцы</div>
+              <div class="top-frame__left__catalogue-container__catalogue__category">Коровы</div>
+            </div>
+          </div>
         </div>
         <div class="top-frame__search-bar">
           <input class="top-frame__search-bar__bar" type="text" placeholder="Искать на Livestock" />
@@ -30,7 +39,7 @@
         <div class="top-frame__right">
           <div class="top-frame__right__user">
             <img class="top-frame__right__user__icon" src="./src/images/user.jpg" />
-            <label class="top-frame__right__user__username">Василий</label>
+            <label class="top-frame__right__user__username">Войти</label>
           </div>
           <div class="top-frame__right__cart">
             <img class="top-frame__right__cart__icon" src="./src/images/cart.jpg" />
@@ -43,7 +52,7 @@
       <div class="filters">
         <div class="filters__category">
           <div class="filters__category__header">Категория</div>
-          <div class="filters__category__value">Козы</div>
+          <div class="filters__category__value">Все</div>
         </div>
         <div class="filters__price">
           <div class="filters__price__header">Цена</div>
@@ -58,28 +67,54 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="items">
-        <div class="items__item">
-          <img
-            class="items__item__image"
-            src="https://20.img.avito.st/image/1/1.v_0qira4ExQcPZEZWPD8uAkoERKUK5ECHCYRFpojGx6c.hCMZiM5Scx6Pgrw_ugb9sEw8aiGkr6bZdFWuhSfLm_c" />
-          <div class="items__item__info">
-            <div class="items__item__info__name">Продаются козы</div>
-            <div class="items__item__info__price">
-              <span class="items__item__info__price__value">3 000</span>
-              <span class="items__item__info__price__currency">₽</span>
-            </div>
-            <div class="items__item__info__description">
-              Продаю козы разных возрастов 10 голов, за всех 50 000 ₽. Можно поштучно.
-            </div>
-          </div>
-          <button class="items__item__cart-button">В корзину</button>
+        <div class="filters__buttons">
+          <button class="filters__buttons__search-button">Искать</button>
+          <button class="filters__buttons__clear-button">Очистить</button>
         </div>
-        <div class="items__pages">
-          <div class="items__pages__page" data-page="1">1</div>
+      </div>
+      <div class="product-list-container">
+        <div class="product-list">
+          <div class="product-list__product">
+            <img
+              class="product-list__product__image"
+              src="https://20.img.avito.st/image/1/1.v_0qira4ExQcPZEZWPD8uAkoERKUK5ECHCYRFpojGx6c.hCMZiM5Scx6Pgrw_ugb9sEw8aiGkr6bZdFWuhSfLm_c" />
+            <div class="product-list__product__info">
+              <div class="product-list__product__info__name">Продаются козы</div>
+              <div class="product-list__product__info__price">
+                <span class="product-list__product__info__price__value">3 000</span>
+                <span class="product-list__product__info__price__currency">₽</span>
+              </div>
+              <div class="product-list__product__info__quantity">
+                <span class="product-list__product__info__quantity__label">В наличии: </span>
+                <span class="product-list__product__info__quantity__value">5</span>
+              </div>
+              <div class="product-list__product__info__description">
+                Продаю козы разных возрастов 10 голов, за всех 50 000 ₽. Можно поштучно.
+              </div>
+            </div>
+            <button class="product-list__product__cart-button">В корзину</button>
+          </div>
+        </div>
+        <div class="product-list__pages">
+          <div class="product-list__pages__page" data-page-ordinal="1">1</div>
         </div>
       </div>
     </main>
+    <div class="overlay-catalogue"></div>
   </body>
+  <div class="overlay-login-form"></div>
+  <div class="login-form-container">
+    <div class="login-form">
+      <form class="login-form__login">
+        <label class="login-form__login__title">Вход</label>
+        <input class="login-form__login__email-input" type="text" placeholder="Почта" />
+        <input class="login-form__login__password-input" type="password" placeholder="Пароль" />
+        <button class="login-form__login__button">Войти</button>
+      </form>
+      <div class="login-form__registration">
+        <label class="login-form__registration__label">Нет аккаунта на Livestock?</label>
+        <button class="login-form__registration__button">Зарегистрироваться</button>
+      </div>
+    </div>
+  </div>
 </html>

@@ -1,12 +1,19 @@
 @import url("./fonts/GTEestiPro/stylesheet.css");
 
 :root {
+  --body-vertical-padding: 2rem;
+  --body-horizontal-padding: 9rem;
+  --top-frame-margin-bottom: 0.8rem;
+  --top-frame-height: 2.5rem;
+  --main-margin-top: 6rem;
   --main-color: rgb(102, 186, 189);
+  --overlay-top: 5.3rem;
   --font-color: rgb(102, 101, 101);
   --tip-font-color: rgb(182, 180, 180);
   --tip-background-color: rgb(243, 243, 243);
   --large-font-size: 1.3rem;
   --small-font-size: 0.85rem;
+  --border-radius: 0.5rem;
 }
 
 * {
@@ -19,14 +26,14 @@ html {
 }
 
 body {
-  padding: 2rem 9rem;
+  padding: var(--body-vertical-padding) var(--body-horizontal-padding);
   font-family: "GT Eesti Pro Text", arial, sans-serif;
   background-color: white;
   color: var(--font-color);
 }
 
 main {
-  margin-top: 6rem;
+  margin-top: var(--main-margin-top);
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -39,6 +46,26 @@ button:hover {
 }
 button:active {
   opacity: 0.5;
+}
+
+/* Spinner */
+
+.spinner {
+  margin: 5rem auto;
+  width: 6rem;
+  height: 6rem;
+  text-align: center;
+  fill: red;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Remove arrows for the input with type 'number' */
