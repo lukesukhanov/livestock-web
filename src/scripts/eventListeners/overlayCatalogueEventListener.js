@@ -1,8 +1,8 @@
 import catalogueView from "../views/CatalogueView.js";
 
-const overlayEl = document.querySelector(".overlay");
+const overlayEl = document.querySelector(".overlay-catalogue");
 
 overlayEl.addEventListener("click", event => {
   event.preventDefault();
-  if (overlayEl.classList.contains("active")) catalogueView.close();
+  catalogueView.close();
 });

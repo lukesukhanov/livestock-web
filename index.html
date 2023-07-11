@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./src/styles/topFrame.css" />
     <link rel="stylesheet" href="./src/styles/filters.css" />
     <link rel="stylesheet" href="./src/styles/productList.css" />
+    <link rel="stylesheet" href="./src/styles/loginForm.css" />
+    <link rel="stylesheet" href="./src/styles/overlay.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -37,7 +39,7 @@
         <div class="top-frame__right">
           <div class="top-frame__right__user">
             <img class="top-frame__right__user__icon" src="./src/images/user.jpg" />
-            <label class="top-frame__right__user__username">Василий</label>
+            <label class="top-frame__right__user__username">Войти</label>
           </div>
           <div class="top-frame__right__cart">
             <img class="top-frame__right__cart__icon" src="./src/images/cart.jpg" />
@@ -98,6 +100,21 @@
         </div>
       </div>
     </main>
-    <div class="overlay"></div>
+    <div class="overlay-catalogue"></div>
   </body>
+  <div class="overlay-login-form"></div>
+  <div class="login-form-container">
+    <div class="login-form">
+      <form class="login-form__login">
+        <label class="login-form__login__title">Вход</label>
+        <input class="login-form__login__email-input" type="text" placeholder="Почта" />
+        <input class="login-form__login__password-input" type="password" placeholder="Пароль" />
+        <button class="login-form__login__button">Войти</button>
+      </form>
+      <div class="login-form__registration">
+        <label class="login-form__registration__label">Нет аккаунта на Livestock?</label>
+        <button class="login-form__registration__button">Зарегистрироваться</button>
+      </div>
+    </div>
+  </div>
 </html>
