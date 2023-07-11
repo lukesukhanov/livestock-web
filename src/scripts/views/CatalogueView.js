@@ -1,4 +1,4 @@
-const overlayEl = document.querySelector(".overlay-catalogue");
+const overlayEl = document.querySelector(".overlay-body");
 const catalogueEl = document.querySelector(".top-frame__left__catalogue-container__catalogue");
 
 class CatalogueView {

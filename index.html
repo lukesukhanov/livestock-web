@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="./src/styles/topFrame.css" />
     <link rel="stylesheet" href="./src/styles/filters.css" />
     <link rel="stylesheet" href="./src/styles/productList.css" />
+    <link rel="stylesheet" href="./src/styles/formContainer.css" />
     <link rel="stylesheet" href="./src/styles/loginForm.css" />
+    <link rel="stylesheet" href="./src/styles/registrationForm.css" />
     <link rel="stylesheet" href="./src/styles/overlay.css" />
     <link
       rel="stylesheet"
@@ -74,6 +76,7 @@
       </div>
       <div class="product-list-container">
         <div class="product-list">
+          <!--
           <div class="product-list__product">
             <img
               class="product-list__product__image"
@@ -93,28 +96,45 @@
               </div>
             </div>
             <button class="product-list__product__cart-button">В корзину</button>
-          </div>
+          </div>-->
         </div>
         <div class="product-list__pages">
           <div class="product-list__pages__page" data-page-ordinal="1">1</div>
         </div>
       </div>
     </main>
-    <div class="overlay-catalogue"></div>
+    <div class="overlay-body"></div>
   </body>
-  <div class="overlay-login-form"></div>
+  <div class="overlay-full"></div>
   <div class="login-form-container">
-    <div class="login-form">
-      <form class="login-form__login">
-        <label class="login-form__login__title">Вход</label>
-        <input class="login-form__login__email-input" type="text" placeholder="Почта" />
-        <input class="login-form__login__password-input" type="password" placeholder="Пароль" />
-        <button class="login-form__login__button">Войти</button>
+    <div class="login-form-box">
+      <form class="login-form-box__login-form">
+        <label class="login-form-box__login-form__title">Вход</label>
+        <input class="login-form-box__login-form__email-input" type="text" placeholder="Почта" />
+        <input
+          class="login-form-box__login-form__password-input"
+          type="password"
+          placeholder="Пароль" />
+        <button class="login-form-box__login-form__button">Войти</button>
       </form>
-      <div class="login-form__registration">
-        <label class="login-form__registration__label">Нет аккаунта на Livestock?</label>
-        <button class="login-form__registration__button">Зарегистрироваться</button>
+      <div class="login-form-box__registration">
+        <label class="login-form-box__registration__label">Нет аккаунта на Livestock?</label>
+        <button class="login-form-box__registration__button">Зарегистрироваться</button>
       </div>
     </div>
+  </div>
+  <div class="registration-form-container">
+    <form class="registration-form">
+      <label class="registration-form__title">Регистрация</label>
+      <input class="registration-form__first-name-input" type="text" placeholder="Имя" />
+      <input class="registration-form__last-name-input" type="text" placeholder="Фамилия" />
+      <input class="registration-form__email-input" type="text" placeholder="Почта" />
+      <input class="registration-form__password-input" type="password" placeholder="Пароль" />
+      <input
+        class="registration-form__repeated-password-input"
+        type="password"
+        placeholder="Повторите пароль" />
+      <button class="registration-form__button">Отправить</button>
+    </form>
   </div>
 </html>

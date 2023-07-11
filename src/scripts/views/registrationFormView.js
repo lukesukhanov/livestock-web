@@ -1,7 +1,7 @@
 const overlayEl = document.querySelector(".overlay-full");
-const formEl = document.querySelector(".login-form-box");
+const formEl = document.querySelector(".registration-form");
 
-class LoginFormView {
+class RegistrationFormView {
   render() {
     formEl.classList.add("active");
     overlayEl.classList.add("active");
@@ -13,4 +13,4 @@ class LoginFormView {
   }
 }
 
-export default new LoginFormView();
+export default new RegistrationFormView();
