@@ -9,6 +9,7 @@ import "./views/registrationFormView.js";
 
 // Services
 import "./services/productService.js";
+import "./services/userService.js";
 
 // Event listeners
 import "./eventListeners/catalogueButtonEventListener.js";
@@ -24,6 +25,8 @@ import "./eventListeners/topFrameUserIconEventListener.js";
 import "./eventListeners/filtersPriceFromInputEventHandler.js";
 import "./eventListeners/filtersPriceToInputEventHandler.js";
 import "./eventListeners/loginFormRegistrationButtonEventListener.js";
+import "./eventListeners/registrationFormSubmitButtonEventHandler.js";
 
 // Controllers
 import "./controllers/catalogueController.js";
+import "./controllers/userController.js";

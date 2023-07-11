@@ -126,13 +126,26 @@
   <div class="registration-form-container">
     <form class="registration-form">
       <label class="registration-form__title">Регистрация</label>
-      <input class="registration-form__first-name-input" type="text" placeholder="Имя" />
-      <input class="registration-form__last-name-input" type="text" placeholder="Фамилия" />
-      <input class="registration-form__email-input" type="text" placeholder="Почта" />
-      <input class="registration-form__password-input" type="password" placeholder="Пароль" />
+      <input
+        class="registration-form__first-name-input"
+        type="text"
+        name="first-name"
+        placeholder="Имя" />
+      <input
+        class="registration-form__last-name-input"
+        type="text"
+        name="last-name"
+        placeholder="Фамилия" />
+      <input class="registration-form__email-input" type="text" name="email" placeholder="Почта" />
+      <input
+        class="registration-form__password-input"
+        type="password"
+        name="password"
+        placeholder="Пароль" />
       <input
         class="registration-form__repeated-password-input"
         type="password"
+        name="repeated-password"
         placeholder="Повторите пароль" />
       <button class="registration-form__button">Отправить</button>
     </form>
