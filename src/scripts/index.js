@@ -6,6 +6,7 @@ import "./views/imageView.js";
 import "./views/filtersView.js";
 import "./views/loginFormView.js";
 import "./views/registrationFormView.js";
+import "./views/userIconView.js";
 
 // Services
 import "./services/productService.js";

@@ -54,7 +54,7 @@ class UserService {
     window.location = AUTHORIZE_ON_LIVESTOCK_API_URL + "?" + params;
   }
 
-  async fetchAccessTokenFromLivestock(authorizationCode, codeVerifier) {
+  async fetchTokensFromLivestock(authorizationCode, codeVerifier) {
     const params = new URLSearchParams();
     params.append("grant_type", "authorization_code");
     params.append("code", authorizationCode);
@@ -72,8 +72,7 @@ class UserService {
       body: params,
     });
     if (response.status === 200) {
-      const responseBody = await response.json();
-      return responseBody["access_token"];
+      return await response.json();
     }
   }
 

@@ -1,5 +1,6 @@
 import userService from "../services/userService.js";
 import stringUtils from "../utils/stringUtils.js";
+import userIconView from "../views/userIconView.js";
 
 class UserController {
   async register(firstName, lastName, email, password) {
@@ -17,7 +18,7 @@ class UserController {
     const codeVerifier = stringUtils.generateRandomString(64);
     window.sessionStorage.setItem("livestockCodeVerifier", codeVerifier);
     const state = stringUtils.generateRandomString(32);
-    window.sessionStorage.setItem("state", state);
+    window.sessionStorage.setItem("livestockState", state);
     await userService.fetchAuthorizationCodeFromLivestock(codeVerifier, state);
   }
 
@@ -25,20 +26,48 @@ class UserController {
     const query = new URLSearchParams(window.location.search);
     const authorizationCode = query.get("code");
     if (!authorizationCode) return;
+    const state = query.get("state");
+    if (!state || state !== window.sessionStorage.getItem("livestockState"))
+      window.location = window.location.origin;
     const codeVerifier = window.sessionStorage.getItem("livestockCodeVerifier");
-    const accessToken = await userService.fetchAccessTokenFromLivestock(
-      authorizationCode,
-      codeVerifier
-    );
-    console.log("accessToken", accessToken);
-    if (!accessToken) return;
+    const tokens = await userService.fetchTokensFromLivestock(authorizationCode, codeVerifier);
+    const accessToken = tokens["access_token"];
     window.sessionStorage.setItem("livestockAccessToken", accessToken);
+    const idToken = this.#parseJwt(tokens["id_token"]);
+    window.sessionStorage.setItem("livestockIdToken", idToken);
     window.location = window.location.origin;
+  }
+
+  #parseJwt(token) {
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    return decodeURIComponent(
+      window
+        .atob(base64)
+        .split("")
+        .map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+        .join("")
+    );
+  }
+
+  async tryLogin() {
+    const idTokenString = window.sessionStorage.getItem("livestockIdToken");
+    if (!idTokenString) {
+      this.fetchAuthorizationCodeFromLivestock();
+      return;
+    }
+    const idToken = JSON.parse(idTokenString);
+    if (idToken["exp"] < new Date().getTime() / 1000) {
+      window.sessionStorage.removeItem("livestockIdToken");
+      this.fetchAuthorizationCodeFromLivestock();
+      return;
+    }
+    userIconView.renderUsername(idToken["given_name"]);
   }
 }
 
 const userController = new UserController();
 userController.handleAuthorizationCodeInLocation();
-console.log(window.sessionStorage.getItem("livestockAccessToken"));
+userController.tryLogin();
 
 export default userController;
