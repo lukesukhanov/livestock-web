@@ -12,6 +12,5 @@ minPriceInputEl.addEventListener("keydown", event => {
   } else {
     productListController.removeFilterParam("minPrice");
   }
-  productListController.refreshFilterParamsInLocation();
   productListController.refreshProductList();
 });

@@ -12,6 +12,5 @@ maxPriceInputEl.addEventListener("keydown", event => {
   } else {
     productListController.removeFilterParam("maxPrice");
   }
-  productListController.refreshFilterParamsInLocation();
   productListController.refreshProductList();
 });

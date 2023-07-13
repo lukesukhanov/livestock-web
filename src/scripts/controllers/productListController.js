@@ -60,7 +60,7 @@ class ProductListController {
     }
   }
 
-  refreshFilterParamsInLocation() {
+  #refreshFilterParamsInLocation() {
     const params = new URLSearchParams();
     Object.keys(this.#filter).forEach(paramName =>
       params.append(paramName, this.#filter[paramName])
@@ -70,6 +70,7 @@ class ProductListController {
   }
 
   async refreshProductList() {
+    this.#refreshFilterParamsInLocation();
     const productPage = await productService.getProductsWithPagingAndFiltering(this.#filter);
     const products = productPage.content;
     productListView.clearProducts();

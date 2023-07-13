@@ -14,9 +14,5 @@ catalogueEl.addEventListener("click", event => {
   );
   if (!categoryEl) return;
   const categoryId = categoryEl.dataset.categoryId;
-  productListController.resetFilter();
-  productListController.setFilterParam("categoryId", categoryId);
-  productListController.refreshFilterParamsInLocation();
-  productListController.refreshProductList();
-  filtersView.clearFilters();
+  window.location = window.location.origin + `?page=0&size=5&categoryId=${categoryId}`;
 });

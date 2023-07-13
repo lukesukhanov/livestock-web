@@ -12,9 +12,6 @@ searchInputEl.addEventListener("keydown", event => {
     catalogueView.close();
     const search = searchInputEl.value;
     productListController.resetFilter();
-    if (search) productListController.setFilterParam("search", search);
-    productListController.refreshFilterParamsInLocation();
-    productListController.refreshProductList();
-    filtersView.clearFilters();
+    if (search) window.location = window.location.origin + `?page=0&size=5&search=${search}`;
   }
 });

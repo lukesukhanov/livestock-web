@@ -8,6 +8,5 @@ pagesEl.addEventListener("click", event => {
   if (pageEl.classList.contains("current")) return;
   const page = Number(pageEl.dataset.pageOrdinal);
   productListController.setFilterParam("page", page - 1);
-  productListController.refreshFilterParamsInLocation();
   productListController.refreshProductList();
 });

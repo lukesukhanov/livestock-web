@@ -7,5 +7,4 @@ filtersClearButtonEl.addEventListener("click", event => {
   event.preventDefault();
   filtersView.clearFilters();
   productListController.parseFilterParamsFromInputs();
-  productListController.refreshFilterParamsInLocation();
 });

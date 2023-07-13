@@ -6,6 +6,5 @@ filtersSearchButtonEl.addEventListener("click", event => {
   event.preventDefault();
   productListController.resetPageAndSizeInFilter();
   productListController.parseFilterParamsFromInputs();
-  productListController.refreshFilterParamsInLocation();
   productListController.refreshProductList();
 });
