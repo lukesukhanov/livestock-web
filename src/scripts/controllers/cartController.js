@@ -46,9 +46,15 @@ class CartController {
   }
 
   async refreshCartProductsList() {
+    cartProductListView.clearProducts();
     this.#refreshFilterParamsInLocation();
     const userEmail = JSON.parse(window.sessionStorage.getItem("livestockIdToken"))?.sub;
-    if (!userEmail) return;
+    if (!userEmail) {
+      userController.clearAuthentication();
+      cartProductListView.renderEmptyCart();
+      this.resetFilter();
+      return;
+    }
     const accessToken = window.sessionStorage.getItem("livestockAccessToken");
     const productsInCartPage = await cartService.getProductsFromCartWithPagingAndFiltering(
       this.#filter,
@@ -57,11 +63,16 @@ class CartController {
     );
     if (!productsInCartPage) {
       userController.clearAuthentication();
-      cartProductListView.close();
+      cartProductListView.renderEmptyCart();
+      this.resetFilter();
       return;
     }
     const products = productsInCartPage.content;
-    cartProductListView.clearProducts();
+    if (!products.length) {
+      cartProductListView.renderEmptyCart();
+      return;
+    }
+    cartProductListView.renderCartProductListContainer();
     products.forEach(product => {
       const imageObjectUrlPromise = productService
         .getIdsOfProductImages(product.productId)
@@ -73,19 +84,49 @@ class CartController {
       removeButtonEl.addEventListener("click", async function (event) {
         event.preventDefault();
         const userEmail = JSON.parse(window.sessionStorage.getItem("livestockIdToken"))?.sub;
-        if (!userEmail) return;
+        if (!userEmail) {
+          userController.clearAuthentication();
+          cartProductListView.close();
+          return;
+        }
         const accessToken = window.sessionStorage.getItem("livestockAccessToken");
+        if (!accessToken) {
+          userController.clearAuthentication();
+          cartProductListView.close();
+          return;
+        }
         const responseStatus = await cartService.removeProductFromCart(
           product.productId,
           userEmail,
           accessToken
         );
-        if (responseStatus !== 204) return;
+        if (responseStatus !== 204) {
+          userController.clearAuthentication();
+          cartProductListView.close();
+          return;
+        }
         cartProductListView.removeProduct(productEl);
       });
     });
-    if (products.length)
-      productListPagesView.render(productsInCartPage.totalPages, Number(this.#filter.page) + 1);
+    productListPagesView.render(productsInCartPage.totalPages, Number(this.#filter.page) + 1);
+  }
+
+  async removeAllProductsFromCart() {
+    const userEmail = JSON.parse(window.sessionStorage.getItem("livestockIdToken"))?.sub;
+    if (!userEmail) {
+      userController.clearAuthentication();
+      cartProductListView.clearProducts();
+      return;
+    }
+    const accessToken = window.sessionStorage.getItem("livestockAccessToken");
+    if (!accessToken) {
+      userController.clearAuthentication();
+      cartProductListView.clearProducts();
+      return;
+    }
+    const responseStatus = await cartService.removeAllProductsFromCart(userEmail, accessToken);
+    if (responseStatus !== 204) userController.clearAuthentication();
+    cartProductListView.renderEmptyCart();
   }
 }
 

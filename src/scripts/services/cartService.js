@@ -48,6 +48,19 @@ class CartService {
     });
     return response.status;
   }
+
+  async removeAllProductsFromCart(userEmail, accessToken) {
+    const response = await fetch(CART_API_URL + "?userEmail=" + userEmail, {
+      method: "DELETE",
+      mode: "cors",
+      credentials: "include",
+      cache: "no-store",
+      headers: {
+        Authorization: "Bearer " + accessToken,
+      },
+    });
+    return response.status;
+  }
 }
 
 export default new CartService();

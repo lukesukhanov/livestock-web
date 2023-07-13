@@ -1,11 +1,16 @@
 .cart-product-list-container {
   flex: 1;
   box-sizing: border-box;
+  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
   flex-shrink: 0;
+}
+
+.cart-product-list-container.active {
+  opacity: 1;
 }
 
 .cart-product-list {
@@ -87,6 +92,7 @@
 }
 
 .product-list__pages {
+  margin-bottom: 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -114,4 +120,28 @@
 .product-list__pages__page.current {
   background-color: var(--main-color);
   color: white;
+}
+
+.cart-product-list__clear-button {
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.2rem;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.empty-cart-title {
+  position: absolute;
+  font-size: 1.2rem;
+  opacity: 0;
+}
+
+.empty-cart-title.active {
+  opacity: 1;
 }

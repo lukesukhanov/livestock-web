@@ -1,10 +1,12 @@
 import imageView from "./imageView.js";
 
+const cartProductListContainerEl = document.querySelector(".cart-product-list-container");
 const cartProductListEl = document.querySelector(".cart-product-list");
+const emptyCartTitleEl = document.querySelector(".empty-cart-title");
 
 class CartProductListView {
   clearProducts() {
-    cartProductListEl.innerHTML = "";
+    cartProductListEl.innerHTML = null;
   }
 
   appendProduct(product) {
@@ -36,12 +38,22 @@ class CartProductListView {
     return productEl;
   }
 
+  renderCartProductListContainer() {
+    cartProductListContainerEl.classList.add("active");
+    emptyCartTitleEl.classList.remove("active");
+  }
+
+  renderEmptyCart() {
+    cartProductListContainerEl.classList.remove("active");
+    emptyCartTitleEl.classList.add("active");
+  }
+
   removeProduct(productEl) {
     productEl.remove();
   }
 
   close() {
-    cartProductListEl.innerHTML = null;
+    cartProductListContainerEl.innerHTML = null;
   }
 }
 

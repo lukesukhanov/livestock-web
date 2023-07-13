@@ -11,6 +11,7 @@ import "./eventListeners/loginFormRegistrationButtonEventListener.js";
 import "./eventListeners/registrationFormSubmitButtonEventHandler.js";
 import "./eventListeners/cartIconEventListener.js";
 import "./eventListeners/cartProductListPagesEventListener.js";
+import "./eventListeners/cartClearButtonEventListener.js";
 
 // Controllers
 import userController from "./controllers/userController.js";
