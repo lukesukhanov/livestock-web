@@ -1,16 +1,17 @@
 import productListController from "../controllers/productListController.js";
 
-const filtersPriceToEl = document.querySelector(".filters__price__inputs__to__input");
+const maxPriceInputEl = document.querySelector(".filters__price__inputs__max-price__input");
 
-filtersPriceToEl.addEventListener("keydown", event => {
+maxPriceInputEl.addEventListener("keydown", event => {
   if (event.key !== "Enter") return;
   event.preventDefault();
-  productListController.setPageableToDefault();
-  const maxPrice = filtersPriceToEl.value;
+  productListController.resetPageAndSizeInFilter();
+  const maxPrice = maxPriceInputEl.value;
   if (maxPrice) {
     productListController.setFilterParam("maxPrice", maxPrice);
   } else {
     productListController.removeFilterParam("maxPrice");
   }
+  productListController.refreshFilterParamsInLocation();
   productListController.refreshProductList();
 });

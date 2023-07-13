@@ -51,7 +51,7 @@
   flex-shrink: 0;
 }
 
-.filters__price__inputs__from {
+.filters__price__inputs__min-price {
   flex: 0.48;
   width: 4rem;
   max-width: 48%;
@@ -64,13 +64,13 @@
   flex-shrink: 0;
 }
 
-.filters__price__inputs__from__label {
+.filters__price__inputs__min-price__label {
   margin-right: 0.15rem;
   color: var(--tip-font-color);
   box-sizing: border-box;
 }
 
-.filters__price__inputs__from__input {
+.filters__price__inputs__min-price__input {
   flex: 0.8;
   width: 1rem;
   max-width: 80%;
@@ -79,7 +79,7 @@
   outline: none;
 }
 
-.filters__price__inputs__to {
+.filters__price__inputs__max-price {
   flex: 0.48;
   width: 4rem;
   max-width: 48%;
@@ -92,13 +92,13 @@
   flex-shrink: 0;
 }
 
-.filters__price__inputs__to__label {
+.filters__price__inputs__max-price__label {
   margin-right: 0.15rem;
   color: var(--tip-font-color);
   box-sizing: border-box;
 }
 
-.filters__price__inputs__to__input {
+.filters__price__inputs__max-price__input {
   flex: 0.8;
   width: 1rem;
   max-width: 80%;

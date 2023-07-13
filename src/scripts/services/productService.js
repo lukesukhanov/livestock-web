@@ -17,10 +17,10 @@ class ProductService {
     }
   }
 
-  async getProductsWithPagingAndFiltering(pageable, filter) {
-    let url = PRODUCT_API_URL;
-    url += "?" + "page=" + (pageable.page - 1) + "&" + "size=" + pageable.size;
-    Object.keys(filter).forEach((param, i) => (url += "&" + `${param}=${filter[param]}`));
+  async getProductsWithPagingAndFiltering(filter) {
+    const params = new URLSearchParams();
+    Object.keys(filter).forEach(paramName => params.append(paramName, filter[paramName]));
+    const url = PRODUCT_API_URL + "?" + params;
     const response = await fetch(url, {
       method: "GET",
       mode: "cors",
@@ -30,12 +30,7 @@ class ProductService {
         Accept: "application/json",
       },
     });
-    switch (response.status) {
-      case 200:
-        return await response.json();
-      case 400:
-        return null;
-    }
+    if (response.status === 200) return await response.json();
   }
 
   async getIdsOfProductImages(productId) {

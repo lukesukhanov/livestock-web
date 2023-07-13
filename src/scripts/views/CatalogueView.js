@@ -1,19 +1,15 @@
-const overlayEl = document.querySelector(".overlay-body");
 const catalogueEl = document.querySelector(".top-frame__left__catalogue-container__catalogue");
 
 class CatalogueView {
   render() {
     catalogueEl.classList.add("active");
-    overlayEl.classList.add("active");
   }
 
   close() {
-    overlayEl.classList.remove("active");
     catalogueEl.classList.remove("active");
   }
 
   toggle() {
-    overlayEl.classList.toggle("active");
     catalogueEl.classList.toggle("active");
   }
 

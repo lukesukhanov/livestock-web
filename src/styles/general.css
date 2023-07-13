@@ -32,6 +32,10 @@ body {
   color: var(--font-color);
 }
 
+body.noscroll {
+  overflow: hidden;
+}
+
 main {
   margin-top: var(--main-margin-top);
   display: flex;

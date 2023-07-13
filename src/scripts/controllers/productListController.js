@@ -5,24 +5,23 @@ import productListView from "../views/productListView.js";
 import productListPagesView from "../views/productListPagesView.js";
 import filtersView from "../views/filtersView.js";
 
-const filtersPriceFromEl = document.querySelector(".filters__price__inputs__from__input");
-const filtersPriceToEl = document.querySelector(".filters__price__inputs__to__input");
+const minPriceInputEl = document.querySelector(".filters__price__inputs__min-price__input");
+const maxPriceInputEl = document.querySelector(".filters__price__inputs__max-price__input");
+
+const filterParams = ["page", "size", "search", "categoryId", "minPrice", "maxPrice"];
 
 class ProductListController {
-  #pageable = { page: 1, size: 5 };
-  #filter = {};
+  #filter = { page: 0, size: 5 };
 
-  clearFilter() {
+  resetFilter() {
     this.#filter = {};
+    this.#filter.page = 0;
+    this.#filter.size = 5;
   }
 
-  setPage(page) {
-    this.#pageable.page = page;
-  }
-
-  setPageableToDefault() {
-    this.#pageable.page = 1;
-    this.#pageable.size = 5;
+  resetPageAndSizeInFilter() {
+    this.#filter.page = 0;
+    this.#filter.size = 5;
   }
 
   setFilterParam(paramName, paramValue) {
@@ -38,9 +37,9 @@ class ProductListController {
     catalogueView.refresh(categories);
   }
 
-  actualizeFilters() {
-    const minPrice = filtersPriceFromEl.value;
-    const maxPrice = filtersPriceToEl.value;
+  parseFilterParamsFromInputs() {
+    const minPrice = minPriceInputEl.value;
+    const maxPrice = maxPriceInputEl.value;
     if (minPrice) {
       this.setFilterParam("minPrice", minPrice);
     } else {
@@ -53,11 +52,25 @@ class ProductListController {
     }
   }
 
-  async refreshProductList() {
-    const productPage = await productService.getProductsWithPagingAndFiltering(
-      this.#pageable,
-      this.#filter
+  parseFilterParamsFromLocation() {
+    const query = new URLSearchParams(window.location.search);
+    for (let paramName of filterParams) {
+      const paramValue = query.get(paramName);
+      if (paramValue) this.setFilterParam(paramName, paramValue);
+    }
+  }
+
+  refreshFilterParamsInLocation() {
+    const params = new URLSearchParams();
+    Object.keys(this.#filter).forEach(paramName =>
+      params.append(paramName, this.#filter[paramName])
     );
+    const url = window.location.origin + window.location.pathname + "?" + params;
+    window.history.pushState({ path: url }, null, url);
+  }
+
+  async refreshProductList() {
+    const productPage = await productService.getProductsWithPagingAndFiltering(this.#filter);
     const products = productPage.content;
     productListView.clearProducts();
     productListView.renderProductListContainer();
@@ -74,9 +87,9 @@ class ProductListController {
         const userEmail = JSON.parse(window.sessionStorage.getItem("livestockIdToken"))?.sub;
         if (!userEmail) return;
         const accessToken = window.sessionStorage.getItem("livestockAccessToken");
-        cartService.addProductToCart(userEmail, product["id"], 1, accessToken);
+        cartService.addProductToCart(userEmail, product.id, 1, accessToken);
       });
-      productListPagesView.render(productPage.totalPages, this.#pageable.page);
+      productListPagesView.render(productPage.totalPages, Number(this.#filter.page) + 1);
       filtersView.renderCategory(this.#filter.categoryId);
     });
   }
