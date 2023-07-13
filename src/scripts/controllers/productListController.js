@@ -1,4 +1,5 @@
 import productService from "../services/productService.js";
+import cartService from "../services/cartService.js";
 import catalogueView from "../views/catalogueView.js";
 import productListView from "../views/productListView.js";
 import productListPagesView from "../views/productListPagesView.js";
@@ -58,20 +59,27 @@ class ProductListController {
       this.#filter
     );
     const products = productPage.content;
+    productListView.clearProducts();
+    productListView.renderProductListContainer();
     products.forEach(product => {
       const imageObjectUrlPromise = productService
         .getIdsOfProductImages(product.id)
         .then(ids => productService.getImageById(ids[0]))
         .then(imageBlob => URL.createObjectURL(imageBlob));
       product.imageObjectUrlPromise = imageObjectUrlPromise;
+      const productEl = productListView.appendProduct(product);
+      const cartButtonEl = productEl.querySelector(".product-list__product__cart-button");
+      cartButtonEl.addEventListener("click", event => {
+        event.preventDefault();
+        const userEmail = JSON.parse(window.sessionStorage.getItem("livestockIdToken"))?.sub;
+        if (!userEmail) return;
+        const accessToken = window.sessionStorage.getItem("livestockAccessToken");
+        cartService.addProductToCart(userEmail, product["id"], 1, accessToken);
+      });
+      productListPagesView.render(productPage.totalPages, this.#pageable.page);
+      filtersView.renderCategory(this.#filter.categoryId);
     });
-    productListView.render(products);
-    productListPagesView.render(productPage.totalPages, this.#pageable.page);
-    filtersView.renderCategory(this.#filter.categoryId);
   }
 }
 
-const productListController = new ProductListController();
-productListController.refreshProductList();
-
-export default productListController;
+export default new ProductListController();

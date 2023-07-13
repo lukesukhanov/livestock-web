@@ -8,7 +8,4 @@ class CatalogueController {
   }
 }
 
-const catalogueController = new CatalogueController();
-catalogueController.refreshCatalogue();
-
-export default catalogueController;
+export default new CatalogueController();

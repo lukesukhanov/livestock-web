@@ -66,8 +66,4 @@ class UserController {
   }
 }
 
-const userController = new UserController();
-userController.handleAuthorizationCodeInLocation();
-userController.tryLogin();
-
-export default userController;
+export default new UserController();

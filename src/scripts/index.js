@@ -11,6 +11,7 @@ import "./views/userIconView.js";
 // Services
 import "./services/productService.js";
 import "./services/userService.js";
+import "./services/cartService.js";
 
 // Event listeners
 import "./eventListeners/catalogueButtonEventListener.js";
@@ -30,8 +31,15 @@ import "./eventListeners/loginFormRegistrationButtonEventListener.js";
 import "./eventListeners/registrationFormSubmitButtonEventHandler.js";
 
 // Controllers
-import "./controllers/catalogueController.js";
-import "./controllers/userController.js";
+import catalogueController from "./controllers/catalogueController.js";
+import userController from "./controllers/userController.js";
+import productListController from "./controllers/productListController.js";
 
 // Utils
 import "./utils/stringUtils.js";
+
+// Run after load
+await userController.handleAuthorizationCodeInLocation();
+await userController.tryLogin();
+await catalogueController.refreshCatalogue();
+await productListController.refreshProductList();

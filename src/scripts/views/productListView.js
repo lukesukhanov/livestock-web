@@ -3,21 +3,33 @@ import imageView from "./imageView.js";
 const productListEl = document.querySelector(".product-list");
 
 class ProductListView {
-  render(products) {
-    this.#clear();
-    products.forEach(product => {
-      const productEl = document.createElement("div");
-      productEl.classList.add("product-list__product");
-      productEl.setAttribute("data-product-id", product.id);
+  clearProducts() {
+    productListEl.innerHTML = "";
+  }
 
-      const imageEl = document.createElement("img");
-      imageEl.classList.add("product-list__product__image");
-      productEl.insertAdjacentElement("afterbegin", imageEl);
-      imageView.render(imageEl, product.imageObjectUrlPromise);
+  renderProductListContainer() {
+    const productListContainerEl = document.createElement("div");
+    productListContainerEl.classList.add("product-list-container");
+    productListContainerEl.insertAdjacentHTML(
+      "beforeend",
+      `
+        <div class="product-list"></div>
+        <div class="product-list__pages"></div>
+      `
+    );
+  }
 
-      productEl.insertAdjacentHTML(
-        "beforeend",
-        `
+  appendProduct(product) {
+    const productEl = document.createElement("div");
+    productEl.classList.add("product-list__product");
+    productEl.setAttribute("data-product-id", product.id);
+    const imageEl = document.createElement("img");
+    imageEl.classList.add("product-list__product__image");
+    productEl.insertAdjacentElement("afterbegin", imageEl);
+    imageView.render(imageEl, product.imageObjectUrlPromise);
+    productEl.insertAdjacentHTML(
+      "beforeend",
+      `
           <div class="product-list__product__info">
             <div class="product-list__product__info__name">${product.productName}</div>
             <div class="product-list__product__info__price">
@@ -32,14 +44,9 @@ class ProductListView {
           </div>
           <button class="product-list__product__cart-button">В корзину</button>
         `
-      );
-
-      productListEl.insertAdjacentElement("beforeend", productEl);
-    });
-  }
-
-  #clear() {
-    productListEl.innerHTML = "";
+    );
+    productListEl.insertAdjacentElement("beforeend", productEl);
+    return productEl;
   }
 }
 

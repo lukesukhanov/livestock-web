@@ -46,7 +46,7 @@ class UserService {
     params.append("response_type", "code");
     params.append("client_id", CLIENT_ID_FOR_LIVESTOCK);
     params.append("redirect_uri", CLIENT_REDIRECT_URL_FOR_LIVESTOCK);
-    params.append("scope", "openid");
+    params.append("scope", "openid cart.write");
     const codeChallenge = await this.#generateCodeChallenge(codeVerifier);
     params.append("code_challenge", codeChallenge);
     params.append("code_challenge_method", "S256");
