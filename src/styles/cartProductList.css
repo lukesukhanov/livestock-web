@@ -2,6 +2,7 @@
   flex: 1;
   box-sizing: border-box;
   opacity: 0;
+  pointer-events: none;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -11,6 +12,7 @@
 
 .cart-product-list-container.active {
   opacity: 1;
+  pointer-events: all;
 }
 
 .cart-product-list {
@@ -140,8 +142,10 @@
   position: absolute;
   font-size: 1.2rem;
   opacity: 0;
+  pointer-events: none;
 }
 
 .empty-cart-title.active {
   opacity: 1;
+  pointer-events: all;
 }

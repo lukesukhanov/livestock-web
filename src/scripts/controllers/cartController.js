@@ -69,7 +69,8 @@ class CartController {
     }
     const products = productsInCartPage.content;
     if (!products.length) {
-      cartProductListView.renderEmptyCart();
+      if (this.#filter.page === 0) cartProductListView.renderEmptyCart();
+      else window.location = window.location.origin + "/cart.html";
       return;
     }
     cartProductListView.renderCartProductListContainer();

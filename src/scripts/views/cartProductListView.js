@@ -52,8 +52,8 @@ class CartProductListView {
     productEl.remove();
   }
 
-  close() {
-    cartProductListContainerEl.innerHTML = null;
+  closeCartProductListContainer() {
+    cartProductListContainerEl.classList.remove("active");
   }
 }
 
