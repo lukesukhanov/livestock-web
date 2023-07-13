@@ -1,5 +1,5 @@
 .overlay-body {
-  position: absolute;
+  position: fixed;
   top: var(--overlay-top);
   left: 0;
   height: 100vh;
@@ -17,7 +17,7 @@
 }
 
 .overlay-full {
-  position: absolute;
+  position: fixed;
   top: var(--overlay-top);
   left: 0;
   top: 0;

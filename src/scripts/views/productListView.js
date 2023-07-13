@@ -7,18 +7,6 @@ class ProductListView {
     productListEl.innerHTML = "";
   }
 
-  renderProductListContainer() {
-    const productListContainerEl = document.createElement("div");
-    productListContainerEl.classList.add("product-list-container");
-    productListContainerEl.insertAdjacentHTML(
-      "beforeend",
-      `
-        <div class="product-list"></div>
-        <div class="product-list__pages"></div>
-      `
-    );
-  }
-
   appendProduct(product) {
     const productEl = document.createElement("div");
     productEl.classList.add("product-list__product");

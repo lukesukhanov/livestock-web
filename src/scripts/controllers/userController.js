@@ -31,10 +31,12 @@ class UserController {
       window.location = window.location.origin;
     const codeVerifier = window.sessionStorage.getItem("livestockCodeVerifier");
     const tokens = await userService.fetchTokensFromLivestock(authorizationCode, codeVerifier);
-    const accessToken = tokens["access_token"];
-    window.sessionStorage.setItem("livestockAccessToken", accessToken);
-    const idToken = this.#parseJwt(tokens["id_token"]);
-    window.sessionStorage.setItem("livestockIdToken", idToken);
+    if (tokens) {
+      const accessToken = tokens["access_token"];
+      window.sessionStorage.setItem("livestockAccessToken", accessToken);
+      const idToken = this.#parseJwt(tokens["id_token"]);
+      window.sessionStorage.setItem("livestockIdToken", idToken);
+    }
     window.location = window.location.origin;
   }
 
@@ -53,16 +55,24 @@ class UserController {
   async tryLogin() {
     const idTokenString = window.sessionStorage.getItem("livestockIdToken");
     if (!idTokenString) {
+      this.clearAuthentication();
       this.fetchAuthorizationCodeFromLivestock();
       return;
     }
     const idToken = JSON.parse(idTokenString);
     if (idToken["exp"] < new Date().getTime() / 1000) {
       window.sessionStorage.removeItem("livestockIdToken");
+      this.clearAuthentication();
       this.fetchAuthorizationCodeFromLivestock();
       return;
     }
     userIconView.renderUsername(idToken["given_name"]);
+  }
+
+  clearAuthentication() {
+    window.sessionStorage.removeItem("livestockIdToken");
+    window.sessionStorage.removeItem("livestockAccessToken");
+    userIconView.clearUsername();
   }
 }
 

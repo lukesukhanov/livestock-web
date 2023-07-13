@@ -74,7 +74,6 @@ class ProductListController {
     const productPage = await productService.getProductsWithPagingAndFiltering(this.#filter);
     const products = productPage.content;
     productListView.clearProducts();
-    productListView.renderProductListContainer();
     products.forEach(product => {
       const imageObjectUrlPromise = productService
         .getIdsOfProductImages(product.id)
