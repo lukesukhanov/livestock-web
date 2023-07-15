@@ -5,6 +5,10 @@ import overlayView from "../views/overlayView.js";
 
 const catalogueEl = document.querySelector(".top-frame__left__catalogue-container__catalogue");
 
+/*
+ * Shows the products of the required category in the product list after clicking on the category
+ * in the catalogue box.
+ */
 catalogueEl.addEventListener("click", event => {
   event.preventDefault();
   overlayView.closeBodyOverlay();

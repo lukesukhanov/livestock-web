@@ -6,16 +6,17 @@ import productListPagesView from "../views/productListPagesView.js";
 
 const filterParams = ["page", "size"];
 
+/*
+ * Methods for managing the product cart.
+ */
 class CartController {
   #filter = { page: 0, size: 5 };
 
+  /*
+   * Sets default values for the filter.
+   */
   resetFilter() {
     this.#filter = {};
-    this.#filter.page = 0;
-    this.#filter.size = 5;
-  }
-
-  resetPageAndSizeInFilter() {
     this.#filter.page = 0;
     this.#filter.size = 5;
   }
@@ -28,6 +29,9 @@ class CartController {
     delete this.#filter[paramName];
   }
 
+  /*
+   * Adds params from the current location's query into the filter.
+   */
   parseFilterParamsFromLocation() {
     const query = new URLSearchParams(window.location.search);
     for (let paramName of filterParams) {
@@ -36,6 +40,9 @@ class CartController {
     }
   }
 
+  /*
+   * Sets params from the filter to the current location's query.
+   */
   #refreshFilterParamsInLocation() {
     const params = new URLSearchParams();
     Object.keys(this.#filter).forEach(paramName =>
@@ -45,6 +52,12 @@ class CartController {
     window.history.pushState({ path: url }, null, url);
   }
 
+  /*
+   * Gets products from the user's cart using the filter.
+   * Shows the found products on the cart page.
+   *
+   * This method is ugly and should be refactored.
+   */
   async refreshCartProductsList() {
     cartProductListView.clearProducts();
     this.#refreshFilterParamsInLocation();
@@ -112,6 +125,10 @@ class CartController {
     productListPagesView.render(productsInCartPage.totalPages, Number(this.#filter.page) + 1);
   }
 
+  /*
+   * Removes all products from the user's cart.
+   * Shows the empty cart on the cart page.
+   */
   async removeAllProductsFromCart() {
     const userEmail = JSON.parse(window.sessionStorage.getItem("livestockIdToken"))?.sub;
     if (!userEmail) {

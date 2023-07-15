@@ -1,6 +1,13 @@
 const productListPagesEl = document.querySelector(".product-list__pages");
 
+/*
+ * Methods for rendering a list of the page ordinals below the product list.
+ */
 class ProductListPagesView {
+  /*
+   * Renders a list of the totalPages page ordinals.
+   * Marks the given current page ordinal.
+   */
   render(totalPages, currentPage) {
     const newPages = [];
     for (let pageOrdinal = 1; pageOrdinal <= totalPages; pageOrdinal++) {

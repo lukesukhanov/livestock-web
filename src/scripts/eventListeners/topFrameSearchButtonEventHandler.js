@@ -6,6 +6,10 @@ import overlayView from "../views/overlayView.js";
 const searchButtonEl = document.querySelector(".top-frame__search-bar__button");
 const searchInputEl = document.querySelector(".top-frame__search-bar__bar");
 
+/*
+ * Shows the found products in the product list after clicking on the 'search' button on the top
+ * frame.
+ */
 searchButtonEl.addEventListener("click", event => {
   event.preventDefault();
   overlayView.closeBodyOverlay();

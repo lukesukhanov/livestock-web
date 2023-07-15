@@ -1,4 +1,10 @@
+/*
+ * Service methods for working with strings.
+ */
 class StringUtils {
+  /*
+   * Generates a pseudorandom string with the given length.
+   */
   generateRandomString(length) {
     let result = "";
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

@@ -9,6 +9,10 @@ const emailInputEl = registrationFormEl.elements["email"];
 const passwordInputEl = registrationFormEl.elements["password"];
 const repeatedPasswordInputEl = registrationFormEl.elements["repeated-password"];
 
+/*
+ * Validates form inputs, submits and hides registration form or marks incorrect inputs after
+ * clicking on the 'submit' button of the registration form.
+ */
 submitButtonEl.addEventListener("click", event => {
   event.preventDefault();
   registrationFormView.clearErrors();

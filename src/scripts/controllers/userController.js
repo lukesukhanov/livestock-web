@@ -2,7 +2,14 @@ import userService from "../services/userService.js";
 import stringUtils from "../utils/stringUtils.js";
 import userIconView from "../views/userIconView.js";
 
+/*
+ * Methods for user's registration and authorization.
+ */
 class UserController {
+  /*
+   * Sends a request to register a new user.
+   * Shows a message with the registration result.
+   */
   async register(firstName, lastName, email, password) {
     const responseStatus = await userService.register(firstName, lastName, email, password);
     if (responseStatus === 204) {
@@ -12,6 +19,12 @@ class UserController {
     }
   }
 
+  /*
+   * Sends a request to login a user on the authorization server.
+   * If succeeded, sends a request to receive a grant from the authorization server.
+   *
+   * As a result, the query param with the authorization code will appear in the location.
+   */
   async fetchAuthorizationCodeFromLivestock(email, password) {
     const loginResponseStatus = await userService.loginOnLivestock(email, password);
     if (loginResponseStatus !== 204) return;
@@ -22,6 +35,12 @@ class UserController {
     await userService.fetchAuthorizationCodeFromLivestock(codeVerifier, state);
   }
 
+  /*
+   * Checks if authorization code is presented in the current location's query.
+   * If so, sends a request to receive a token from the authorization server using this code.
+   *
+   * Reloads page with the authorization code removed from the query.
+   */
   async handleAuthorizationCodeInLocation() {
     const query = new URLSearchParams(window.location.search);
     const authorizationCode = query.get("code");
@@ -40,6 +59,9 @@ class UserController {
     window.location = window.location.origin;
   }
 
+  /*
+   * Decodes the payload of the JWT token.
+   */
   #parseJwt(token) {
     const base64Url = token.split(".")[1];
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -52,6 +74,11 @@ class UserController {
     );
   }
 
+  /*
+   * Checks current authorization and starts a login process if it's needed.
+   *
+   * This method is ugly and should be refactored.
+   */
   async tryLogin() {
     const idTokenString = window.sessionStorage.getItem("livestockIdToken");
     if (!idTokenString) {
@@ -69,6 +96,9 @@ class UserController {
     userIconView.renderUsername(idToken["given_name"]);
   }
 
+  /*
+   * Removes tokens from the session storage, clears the username on the top frame's user icon.
+   */
   clearAuthentication() {
     window.sessionStorage.removeItem("livestockIdToken");
     window.sessionStorage.removeItem("livestockAccessToken");

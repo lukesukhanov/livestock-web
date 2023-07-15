@@ -1,6 +1,5 @@
 import productService from "../services/productService.js";
 import cartService from "../services/cartService.js";
-import catalogueView from "../views/catalogueView.js";
 import productListView from "../views/productListView.js";
 import productListPagesView from "../views/productListPagesView.js";
 import filtersView from "../views/filtersView.js";
@@ -10,15 +9,24 @@ const maxPriceInputEl = document.querySelector(".filters__price__inputs__max-pri
 
 const filterParams = ["page", "size", "search", "categoryId", "minPrice", "maxPrice"];
 
+/*
+ * Methods for managing the product list on the page with filters.
+ */
 class ProductListController {
   #filter = { page: 0, size: 5 };
 
+  /*
+   * Sets default values for the filter.
+   */
   resetFilter() {
     this.#filter = {};
     this.#filter.page = 0;
     this.#filter.size = 5;
   }
 
+  /*
+   * Sets default values for the page and size params in the filter.
+   */
   resetPageAndSizeInFilter() {
     this.#filter.page = 0;
     this.#filter.size = 5;
@@ -32,11 +40,9 @@ class ProductListController {
     delete this.#filter[paramName];
   }
 
-  async refreshCatalogue() {
-    const categories = await productService.getAllCategories();
-    catalogueView.refresh(categories);
-  }
-
+  /*
+   * Adds params from the filters on the left side of the page into the filter.
+   */
   parseFilterParamsFromInputs() {
     const minPrice = minPriceInputEl.value;
     const maxPrice = maxPriceInputEl.value;
@@ -52,6 +58,9 @@ class ProductListController {
     }
   }
 
+  /*
+   * Adds params from the current location's query into the filter.
+   */
   parseFilterParamsFromLocation() {
     const query = new URLSearchParams(window.location.search);
     for (let paramName of filterParams) {
@@ -60,6 +69,9 @@ class ProductListController {
     }
   }
 
+  /*
+   * Sets params from the filter to the current location's query.
+   */
   #refreshFilterParamsInLocation() {
     const params = new URLSearchParams();
     Object.keys(this.#filter).forEach(paramName =>
@@ -69,6 +81,12 @@ class ProductListController {
     window.history.pushState({ path: url }, null, url);
   }
 
+  /*
+   * Gets products using the filter.
+   * Shows the found products on the filter page.
+   *
+   * This method is ugly and should be refactored.
+   */
   async refreshProductList() {
     this.#refreshFilterParamsInLocation();
     const productPage = await productService.getProductsWithPagingAndFiltering(this.#filter);

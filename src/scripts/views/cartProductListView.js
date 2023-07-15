@@ -4,11 +4,13 @@ const cartProductListContainerEl = document.querySelector(".cart-product-list-co
 const cartProductListEl = document.querySelector(".cart-product-list");
 const emptyCartTitleEl = document.querySelector(".empty-cart-title");
 
+/*
+ * Methods for rendering products in a cart.
+ */
 class CartProductListView {
-  clearProducts() {
-    cartProductListEl.innerHTML = null;
-  }
-
+  /*
+   * Adds a new product into the cart.
+   */
   appendProduct(product) {
     const productEl = document.createElement("div");
     productEl.classList.add("cart-product-list__product");
@@ -38,20 +40,39 @@ class CartProductListView {
     return productEl;
   }
 
+  /*
+   * Removes all products from the cart.
+   */
+  clearProducts() {
+    cartProductListEl.innerHTML = null;
+  }
+
+  /*
+   * Renders a cart.
+   */
   renderCartProductListContainer() {
     cartProductListContainerEl.classList.add("active");
     emptyCartTitleEl.classList.remove("active");
   }
 
+  /*
+   * Renders an empty cart.
+   */
   renderEmptyCart() {
     cartProductListContainerEl.classList.remove("active");
     emptyCartTitleEl.classList.add("active");
   }
 
+  /*
+   * Removes a single product from the cart.
+   */
   removeProduct(productEl) {
     productEl.remove();
   }
 
+  /*
+   * Renders a cart.
+   */
   closeCartProductListContainer() {
     cartProductListContainerEl.classList.remove("active");
   }

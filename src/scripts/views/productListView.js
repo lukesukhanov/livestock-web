@@ -2,11 +2,20 @@ import imageView from "./imageView.js";
 
 const productListEl = document.querySelector(".product-list");
 
+/*
+ * Methods for rendering a product list.
+ */
 class ProductListView {
+  /*
+   * Removes all products from the product list.
+   */
   clearProducts() {
     productListEl.innerHTML = "";
   }
 
+  /*
+   * Adds a new product into the product list.
+   */
   appendProduct(product) {
     const productEl = document.createElement("div");
     productEl.classList.add("product-list__product");

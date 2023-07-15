@@ -4,6 +4,9 @@ import catalogueView from "../views/catalogueView.js";
 
 const userIconEl = document.querySelector(".top-frame__right__user");
 
+/*
+ * Shows the login form after clicking on the user icon on the top frame.
+ */
 userIconEl.addEventListener("click", event => {
   event.preventDefault();
   overlayView.closeBodyOverlay();

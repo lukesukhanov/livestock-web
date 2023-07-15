@@ -6,6 +6,10 @@ const submitButtonEl = document.querySelector(".login-form-box__login-form__butt
 const emailInputEl = loginFormEl.elements["email"];
 const passwordInputEl = loginFormEl.elements["password"];
 
+/*
+ * Validates form inputs, submits and hides login form or marks incorrect inputs after clicking on
+ * the 'submit' button of the login form.
+ */
 submitButtonEl.addEventListener("click", event => {
   event.preventDefault();
   loginFormView.clearErrors();

@@ -18,7 +18,7 @@ import userController from "./controllers/userController.js";
 import catalogueController from "./controllers/catalogueController.js";
 import cartController from "./controllers/cartController.js";
 
-// Run after load
+// Run after page load
 await userController.handleAuthorizationCodeInLocation();
 await userController.tryLogin();
 await catalogueController.refreshCatalogue();
