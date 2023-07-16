@@ -1,0 +1,122 @@
+.product-list-container {
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.product-list {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.product-list__product {
+  margin-bottom: 1rem;
+  height: 15rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.product-list__product__image {
+  margin-right: 1rem;
+  height: inherit;
+  width: 15rem;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.product-list__product__info {
+  margin-right: 1rem;
+  height: inherit;
+  width: 26rem;
+  box-sizing: border-box;
+}
+
+.product-list__product__info__name {
+  font-size: var(--large-font-size);
+  font-weight: bold;
+  color: var(--main-color);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.product-list__product__info__name:hover {
+  opacity: 0.75;
+}
+
+.product-list__product__info__name:active {
+  opacity: 0.5;
+}
+
+.product-list__product__info__price {
+  font-size: var(--large-font-size);
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.product-list__product__info__quantity {
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.product-list__product__info__description {
+  margin-top: 0.4rem;
+  box-sizing: border-box;
+}
+
+.product-list__product__cart-button {
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.2rem;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.product-list__pages {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.product-list__pages__page {
+  padding: 0.2rem 0.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  font-weight: bold;
+  color: var(--main-color);
+  border-radius: 0.1rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.product-list__pages__page:hover {
+  background-color: var(--tip-background-color);
+}
+
+.product-list__pages__page.current {
+  background-color: var(--main-color);
+  color: white;
+}

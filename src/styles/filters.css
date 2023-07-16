@@ -1,0 +1,132 @@
+.filters {
+  margin-right: 3rem;
+  width: 15%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.filters__category {
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.filters__category__header {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+.filters__category__value {
+  position: relative;
+  left: 1.5rem;
+  box-sizing: border-box;
+}
+
+.filters__price {
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.filters__price__header {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+.filters__price__inputs {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.filters__price__inputs__min-price {
+  flex: 0.48;
+  width: 4rem;
+  max-width: 48%;
+  border: 0.1rem solid var(--main-color);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.filters__price__inputs__min-price__label {
+  margin-right: 0.15rem;
+  color: var(--tip-font-color);
+  box-sizing: border-box;
+}
+
+.filters__price__inputs__min-price__input {
+  flex: 0.8;
+  width: 1rem;
+  max-width: 80%;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.filters__price__inputs__max-price {
+  flex: 0.48;
+  width: 4rem;
+  max-width: 48%;
+  border: 0.1rem solid var(--main-color);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.filters__price__inputs__max-price__label {
+  margin-right: 0.15rem;
+  color: var(--tip-font-color);
+  box-sizing: border-box;
+}
+
+.filters__price__inputs__max-price__input {
+  flex: 0.8;
+  width: 1rem;
+  max-width: 80%;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.filters__buttons {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.filters__buttons button {
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.1rem;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.15s;
+}
