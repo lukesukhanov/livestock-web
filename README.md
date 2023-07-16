@@ -1,8 +1,9 @@
 <a name="readme-top"></a>
 
 ## About the application
-The frontend application for the livestock internet shop.<br />
+The frontend application for the livestock internet shop.
 <p>
+See also <a href="https://github.com/lukesukhanov/livestock">the main project page.</a>
 
 ## How to run the project
 Just open the index.html file.
