@@ -13,4 +13,5 @@ Just open the index.html file.
 ## What tools are exploited
 <ul>
   <li>HTML + CSS + (pure) JavaScript</li>
+  <li>Docker</li>
 </ul>
